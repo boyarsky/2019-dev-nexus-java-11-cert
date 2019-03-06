@@ -19,20 +19,17 @@ public class Speakers {
         Path path = Paths.get("speakers.txt");
         String text = new String(Files.readAllBytes(path));
         String firstAlphabetical = text.lines()
-                .sorted()
-                .findFirst()
+                .max(Comparator.naturalOrder())
                 .orElseThrow(() -> new IllegalStateException("No names found"));
 
         System.out.println("First name alphabetical: " + firstAlphabetical);
         String lastAlphabetical = text.lines()
-                .sorted(this::compareByLastName)
-                .findFirst()
+                .max(this::compareByLastName)
                 .orElseThrow(() -> new IllegalStateException("No names found"));
         System.out.println("Last name alphabetical: " + lastAlphabetical);
 
         String longestName = text.lines()
-                .sorted(Comparator.comparing(String::length).reversed())
-                .findFirst()
+                .max(Comparator.comparing(String::length).reversed())
                 .orElseThrow(() -> new IllegalStateException("No names found"));
         System.out.println("I love DevNexus!\n".repeat(10) + longestName);
 
