@@ -3,7 +3,7 @@ import java.util.Random;
 public interface Lab1Interface {
 
     default int getRandomNumberTickets(int max) {
-        return getRandom(0, max);
+        return getRandom(1, max);
     }
 
     default int getNumberStrikes() {
@@ -12,6 +12,6 @@ public interface Lab1Interface {
 
     private int getRandom(int min, int max) {
         Random random = new Random();
-        return random.nextInt(max - min) + min + 1;
+        return random.nextInt(max - min) + min;
     }
 }
