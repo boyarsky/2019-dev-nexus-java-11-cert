@@ -58,7 +58,7 @@ public class StreamHelper {
         Path path = Paths.get("sentences.txt");
         String text = new String(Files.readAllBytes(path));
         Pattern.compile("\\s+").splitAsStream(text)
-                .dropWhile(word -> word.length() < 6)
+                .filter(word -> word.length() < 6)
                 .limit(1)
                 .forEach(System.out::println);
 
