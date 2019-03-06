@@ -1,0 +1,1 @@
+Java 11 is a long term support release. It contains a number of new features and is supported for 3 years.
